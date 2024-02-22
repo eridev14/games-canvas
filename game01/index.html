@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game 01</title>
+    <style>
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        #canvas {
+            border: 2px solid;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        let canvas = document.getElementById('canvas')
+        canvas.width = 400
+        canvas.height = 400
+        let ctx = canvas.getContext('2d');
+        let x = 0;
+        let y = 0;
+
+        function draw() {
+            window.requestAnimationFrame(draw)
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            ctx.fillRect(x, y, 10, 10)
+            if (x >= 0) {
+                x++;
+            }
+
+            if (x === canvas.width || x >= canvas.width) {
+                x--
+            }
+        }
+
+        draw();
+
+    </script>
+</body>
+
+</html>
